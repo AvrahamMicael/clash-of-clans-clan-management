@@ -1,0 +1,18 @@
+-
+  let msg;
+  switch(minAdminAccess)
+  {
+    case 'elder':
+      msg = 'This area can only be accessed by elders and up.';
+      break;
+    case 'coLeader':
+      msg = 'This area can only be accessed by coLeaders and the leader.';
+      break;
+    case 'leader':
+      msg = 'This area can only be accessed by the leader.';
+      break;
+    default:
+      throw new Error('Invalid admin access');
+  }
+  msg = __(msg);
+p.text-center.text-secondary!= msg 

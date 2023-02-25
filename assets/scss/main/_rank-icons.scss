@@ -1,0 +1,43 @@
+.up-rank-icon,
+.down-rank-icon
+{
+  position: relative;
+  top: 5px;
+
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+.up-rank-icon
+{
+  background-color: #b7e33c;
+  background-image: -o-linear-gradient(#eaf79a, #b7e33c, #83af2a);
+  background-image: linear-gradient(#eaf79a, #b7e33c, #83af2a);
+}
+
+.down-rank-icon
+{
+  background-color: #da7b73;
+  background-image: -o-linear-gradient(#da7b73, #5e2c27);
+  background-image: linear-gradient(#da7b73, #5e2c27);
+}
+
+.up-rank-text
+{
+  color: #69774a;
+}
+
+.down-rank-text
+{
+  color: #5e2c27;
+}
+
+.fa-equals
+{
+  width: 10px;
+}

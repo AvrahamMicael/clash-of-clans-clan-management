@@ -1,0 +1,29 @@
+.p-2.player-profile.rounded-top.special-text-outline
+  .d-flex.flex-column.mb-5.position-relative
+    div
+      .xp-name-role-container
+        +xp(member.expLevel)(class='fs-5')
+        .d-flex.flex-column.position-relative.member-name
+          span.position-relative= member.name
+          span.position-relative.fs-8= member.tag
+          span.position-relative.fs-8.text-capitalize !{__(member.role)}
+    include /includes/member-labels
+  .d-flex.flex-column.justify-content-center.align-items-center.px-2
+    h4.text-center= clanName
+    +img(member.clan.badgeUrls.medium, __('Emblema do clan'))(class!='clan-badge')
+  .d-flex.flex-column.align-items-center
+    include /includes/member-league-details
+    .mt-3
+      include /includes/member-max-trophies
+    .mt-3
+      include /includes/war-stars
+.player-extra-info-row.special-text-outline.fs-7.p-1
+  +profile-extra-info('troops donated', member.donations)
+  +profile-extra-info('troops received', member.donationsReceived)
+  +profile-extra-info('attacks won', member.attackWins)
+  +profile-extra-info('defenses won', member.defenseWins)
+.player-extra-info-row.special-text-outline.fs-7.px-1.pb-1.rounded-bottom
+  +profile-extra-info('last raid attacks', `${member.lastRaid.attacks}/${member.lastRaid.attackLimit}`)
+  +profile-extra-info('war leagues', member.war_leagues, true)
+  +profile-extra-info('wars', member.wars, true)
+  +profile-extra-info('games points', member.games_points, true)

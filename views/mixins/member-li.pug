@@ -1,0 +1,22 @@
+mixin member-li({ name, clanRank, previousClanRank, expLevel, league, role, donations, donationsReceived, trophies, tag, lastRaid, wars, war_leagues, games_points, roleToPromote })
+  - const tagWithoutSharp = tag.replace('#', '');
+  li.rounded(id!=`T-${tagWithoutSharp}`)
+    a.d-flex.align-items-center.rounded(href=`member/${ tagWithoutSharp }`)
+      .reflex
+      +member-rank(clanRank)
+      +rank-change(clanRank, previousClanRank)
+      .vl
+      +img(league.iconUrls.tiny, league.name)(class='mx-1')
+      .vl
+      +xp(expLevel)(class='ms-2 me-1 p-1 fs-6')
+      .vl
+      +member-name-role(name, role, roleToPromote)
+      .ms-auto.me-3.d-flex.align-items-center
+        .vl
+        +indicator('games points', games_points, true, 940, 500)
+        +indicator('war leagues', war_leagues, true, 860)
+        +indicator('wars', wars, true, 790)
+        +indicator('last raid attacks', `${lastRaid.attacks}/${lastRaid.attackLimit}`, false, 715)
+        +indicator('troops donated', donations, 665)
+        +indicator('troops received', donationsReceived)
+        +trophies(trophies)

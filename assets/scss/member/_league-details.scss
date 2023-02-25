@@ -1,0 +1,61 @@
+.league-details
+{
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  position: relative;
+  & > div
+  {
+    z-index: 2;
+    position: relative;
+    top: 15px;
+    right: 33px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  & > img
+  {
+    z-index: 3;
+  }
+}
+
+.league-name,
+.league-trophies
+{
+  text-align: center;
+}
+
+.league-name
+{
+  background-color: #3a3f4b;
+  background-image: -o-linear-gradient(to right, #3a3f4b 0%, #3a3f4b 40%, #7682a0); 
+  background-image: linear-gradient(to right, #3a3f4b 0%, #3a3f4b 40%, #7682a0); 
+  @media screen and (max-width: 768px)
+  {
+    &
+    {
+      text-align: right;
+    }
+  }
+}
+
+.league-trophies
+{
+  max-height: 27px;
+  position: relative;
+  background-image: -o-linear-gradient(to right, #7150b1 0%, #7150b1 40%, #7682a0); 
+  background-image: linear-gradient(to right, #7150b1 0%, #7150b1 40%, #7682a0); 
+  & > i
+  {
+    height: 30px;
+    width: 30px;
+    left: 30px;
+    bottom: 0;
+  }
+  
+  & > span
+  {
+    position: relative;
+    bottom: 2px;
+  }
+}
+

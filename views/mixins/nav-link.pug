@@ -1,0 +1,3 @@
+mixin nav-link(name, path)
+  - const id = currentPath == path ? 'current-route' : undefined;
+  a(href= path id= id ) !{__(name)}

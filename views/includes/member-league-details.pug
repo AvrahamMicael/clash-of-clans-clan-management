@@ -1,0 +1,15 @@
+.league-details
+  -
+    let leagueIconUrl = 'https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png';
+    let leagueName = 'Unranked';
+    if(member.league)
+    {
+      leagueIconUrl = member.league.iconUrls.small;
+      leagueName = member.league.name;
+    }
+  +img(leagueIconUrl, leagueName)
+  div
+    .league-name.fs-7= leagueName
+    .league-trophies
+      i.position-absolute.trophies
+      span!= member.trophies

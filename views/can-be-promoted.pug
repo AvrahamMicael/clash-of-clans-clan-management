@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  include includes/home-panel
+    ol.member-list.m-0.p-0
+      each member in members
+        +member-li(member)
+      else
+        .none !{__('no one can be promoted now')}.
+

@@ -1,0 +1,11 @@
+extends layout
+
+block append styles
+  link(rel="stylesheet", href="/css/error.css")
+
+block content
+  main.container.text-center.error-block
+    h1= message
+    h2= error.status
+    pre #{error.stack}
+    pre.text-start #{JSON.stringify(error, null, '\n')}

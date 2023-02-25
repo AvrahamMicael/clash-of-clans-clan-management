@@ -1,0 +1,11 @@
+.profile-info-name
+{
+  margin-bottom: 5px;
+  position: relative;
+  right: 20px;
+  & + div
+  {
+    max-width: 150px;
+  }
+}
+

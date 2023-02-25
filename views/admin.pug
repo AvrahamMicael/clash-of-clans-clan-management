@@ -1,0 +1,12 @@
+extends layout 
+
+block append styles 
+  link(rel="stylesheet", href="/css/admin.css")
+
+block scripts
+
+block content 
+  include includes/admin-panel
+    h2.text-capitalize.text-center admin
+    include includes/admin-min-access-msg
+    include includes/admin-access-form

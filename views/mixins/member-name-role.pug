@@ -1,0 +1,10 @@
+mixin member-name-role(name, role, roleToPromote = '')
+  - if(role == 'admin') role = 'elder';
+  .d-inline-block.mx-2.position-relative.text-nowrap
+    span.d-block.special-text-outline.position-relative!= name
+    span.member-role.position-relative.role-position.secondary-color.text-capitalize
+      if roleToPromote
+        | #{__(role)} 🡢
+        span #{__(roleToPromote)}
+      else
+        | #{__(role)}

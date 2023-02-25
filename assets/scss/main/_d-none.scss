@@ -1,0 +1,20 @@
+$widths: (
+  940,
+  860,
+  790,
+  715,
+  665,
+  615,
+);
+
+@each $width in $widths
+{
+  .d-none-#{$width}
+  {
+    $px: $width * 1px;
+    @media screen and (max-width: $px)
+    {
+      display: none !important;
+    }
+  }
+}

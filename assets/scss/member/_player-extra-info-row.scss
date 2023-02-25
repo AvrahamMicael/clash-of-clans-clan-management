@@ -1,0 +1,23 @@
+.player-extra-info-row
+{
+  background-color: #4a4b77;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  & > div
+  {
+    margin-left: .5rem;
+    &:first-child
+    {
+      margin-left: 0;
+    }
+  }
+  
+  .qty
+  {
+    display: inline-block !important;
+    background-color: #2e2c62;
+    text-align: center;
+    width: 60px;
+    text-shadow: none;
+  }
+}

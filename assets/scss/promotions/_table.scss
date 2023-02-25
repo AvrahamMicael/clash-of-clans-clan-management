@@ -1,0 +1,27 @@
+table
+{
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td
+{
+  border-bottom: 1px #b6b6af solid;
+  padding: 10px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+td
+{
+  &:first-child
+  {
+    text-decoration: underline;
+  }
+}
+
+tbody > tr:hover
+{
+  background-color: var(--tr-hover-color);
+}

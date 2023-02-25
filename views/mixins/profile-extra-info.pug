@@ -1,0 +1,4 @@
+mixin profile-extra-info(name, qty, editable = false)
+  .d-flex.justify-content-between.align-items-center.text-capitalize
+    span !{__(name)}!{editable ? '*' : ''}:
+    .qty.py-1.rounded!= qty

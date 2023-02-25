@@ -1,0 +1,62 @@
+.member-li
+{
+  background-color: #dbddd2;
+}
+
+li:first-child
+{
+  margin-top: 0;
+}
+
+.member-list
+{
+  list-style: none;
+  & > li
+  {
+    margin-top: .7em;
+    & > a
+    {
+      background-color: #d5d9cc;
+      border-bottom: #cacec6 1px solid;
+      position: relative;
+      z-index: 1;
+      & > *
+      {
+        z-index: 3;
+      }
+      & > .reflex
+      {
+        position: absolute;
+        width: 98%;
+        height: 30%;
+        left: 0;
+        right: 0;
+        top: 13%;
+        margin: 0 auto;
+        background-color: #eae9e1c4;
+        border-radius: 10px;
+        z-index: 2;
+      }
+      &:hover
+      {
+        background-color: #1e80bc;
+        & .secondary-color
+        {
+          color: #FFF;
+        }
+        & > .reflex
+        {
+          background-color: #53c0e4e1;
+        }
+      }
+    }
+  }
+  & > div.none
+  {
+    text-align: center;
+    &::first-letter
+    {
+      text-transform: capitalize;
+    }
+  }
+}

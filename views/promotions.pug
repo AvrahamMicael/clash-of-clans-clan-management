@@ -1,0 +1,15 @@
+extends layout
+
+block append scripts 
+  if admin
+    include /includes/polyfills
+    script(src="/js/admin/updatePromotionRequirements.js" defer) 
+
+block append styles
+  link(rel="stylesheet", href="/css/promotions.css")
+
+block content
+  include includes/home-panel
+    include includes/promotions-table
+    .can-be-promoted
+      a(href='/promotions/can-be-promoted') !{__('check members which can be promoted')}

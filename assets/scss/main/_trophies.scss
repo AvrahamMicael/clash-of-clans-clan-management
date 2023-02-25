@@ -1,0 +1,27 @@
+.bg-trophies
+{
+  background-image: linear-gradient(#edd597, #eecc8d, #e6c779);
+  @media screen and (max-width: 555px)
+  {
+    &
+    {
+      display: none !important;
+    }
+  }
+}
+
+.trophies
+{
+  height: 40px;
+  width: 40px;
+  bottom: -5px;
+  right: 2px;
+  background-image: url('../img/trophy.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  .webp &
+  {
+    background-image: url('../img/trophy.webp');
+  }
+}
+

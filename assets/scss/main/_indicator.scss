@@ -1,0 +1,31 @@
+.indicator
+{
+  color: #212529;
+  background-color: #edeee8;
+  & > button.update-indicator-btn
+  {
+    position: absolute;
+    outline: none;
+    background: none;
+    color: #000;
+    border: none;
+  }
+}
+
+button.update-indicator-btn
+{
+  &.minus
+  {
+    left: 0;
+  }
+  &.plus
+  {
+    right: 0;
+  }
+}
+
+.indicator-container
+{
+  display: inline-block;
+}
+

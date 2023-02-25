@@ -1,0 +1,12 @@
+.xp
+{
+  background-image: url('../img/XP.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-height: 50px;
+  max-width: 50px;
+  .webp &
+  {
+    background-image: url('../img/XP.webp');
+  }
+}

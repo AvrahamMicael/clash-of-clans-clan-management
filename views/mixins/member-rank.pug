@@ -1,0 +1,3 @@
+mixin member-rank(clanRank)
+  - const whiteSpaces = clanRank < 10 ? '&nbsp;' : '';
+  span.d-inline-block.mx-3.special-text-outline.font-monospace!= `${clanRank}.${whiteSpaces}`

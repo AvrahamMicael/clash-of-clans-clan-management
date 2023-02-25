@@ -1,0 +1,23 @@
+nav
+{
+  &.panel-options
+  {
+    position: absolute;
+    top: -27px;
+    & > a
+    {
+      color: #FFF;
+      text-transform: capitalize !important;
+      border: 1px solid var(--nav-link-dark-color);
+      border-bottom: none;
+      background-color: var(--nav-link-dark-color);
+      padding: 5px;
+      border-radius: 10px 10px 0 0;
+      &#current-route
+      {
+        pointer-events: none;
+        background-color: var(--panel-layer-1-color);
+      }
+    }
+  }
+}

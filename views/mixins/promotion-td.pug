@@ -1,0 +1,10 @@
+mixin promotion-td(value, name, canChangeAvailability = false, isAvailable)
+  if canChangeAvailability && admin
+    td
+      input(id=value type="checkbox" name=name checked=isAvailable)
+      label(for=value)= value
+  else if admin
+    td
+      input(type="number" name=name placeholder=value value=value min=0 step=1)
+  else
+    td= value

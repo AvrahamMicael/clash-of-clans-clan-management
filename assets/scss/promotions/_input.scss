@@ -1,0 +1,19 @@
+td > input
+{
+  outline: none;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  width: 100%;
+  transition: 1s all;
+  border-radius: 10px;
+  &:invalid
+  {
+    background-color: rgba(255, 0, 0, .4);
+  }
+  &[type="checkbox"]
+  {
+    width: auto;
+    margin-right: 5px;
+  }
+}

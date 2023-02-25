@@ -1,0 +1,12 @@
+.text-outline
+{
+  text-shadow: var(--text-outline-shadow);
+}
+
+.special-text-outline
+{
+  color: #FFF;
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow:  var(--text-outline-shadow), 0 2.4px 0 #000;
+}

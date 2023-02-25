@@ -1,0 +1,15 @@
+mixin indicator(name, qty, adminEditable = false, displayNonePx = 615, updateStep = 1)
+  - const canEdit = adminEditable && admin;
+  - const dataSetName = name.toLowerCase().replace(' ', '_');
+  .fs-7.text-center.mx-2(class=`d-none-${displayNonePx}`)
+    span.d-block.text-capitalize.secondary-color.fw-bold.fs-7!= `${__(name)}${adminEditable ? '*' : ''}:`
+    .rounded.indicator.fw-bolder.position-relative(data-step=updateStep class!=canEdit ? 'px-4' : 'mx-2')
+      if canEdit
+        button.update-indicator-btn.minus(data-name!=dataSetName)
+          i.fa-solid.fa-minus
+            span.sr-only !{__('update minus 1')}
+      span(class!=`indicator-name-${dataSetName}`)!= qty
+      if canEdit
+        button.update-indicator-btn.plus(data-name!=dataSetName)
+          i.fa-solid.fa-plus
+            span.sr-only !{__('update plus 1')}

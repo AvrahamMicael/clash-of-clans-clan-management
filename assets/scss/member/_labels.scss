@@ -1,0 +1,33 @@
+.labels
+{
+  @media screen and (max-width: 740px)
+  {
+    &
+    {
+      position: absolute;
+      right: 0;
+    }
+  }
+  @media screen and (max-width: 470px)
+  {
+    &
+    {
+      position: static;
+    }
+  }
+  & > img
+  {
+    width: 60px;
+    height: 60px;
+    margin-left: .5em;
+    &:first-child
+    {
+      margin-left: 0;
+    }
+  }
+
+  & > img:first-child
+  {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,36 @@
+.player-profile
+{
+  border: 4px #7682a0 solid;
+  background-color: #7682a0;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  @media screen and (max-width: 740px)
+  {
+    &
+    {
+      grid-template-columns: 1fr;
+      grid-template-rows: .5fr .5fr .5fr;
+    }
+    & > div
+    {
+      border: none !important;
+    }
+  }
+  & > div
+  {
+    border-left: 1px solid #65759c;
+    &:first-child
+    {
+      border: none;
+    }
+  }
+
+  & .member-name > span
+  {
+    bottom: 10px;
+    &:first-child
+    {
+      bottom: 10px;
+    }
+  }
+}

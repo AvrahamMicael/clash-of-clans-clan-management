@@ -1,0 +1,19 @@
+table 
+  thead 
+    tr
+      th !{__('role')}
+      th !{__('war leagues')}
+      th !{__('wars')}
+      th !{__('donations')}
+      th !{__('raid attacks')}
+      th !{__('clan games points')}
+  tbody
+    each requirement in requirements
+      if requirement.a || admin
+        tr(data-role= requirement.r)
+          +promotion-td(__(requirement.r), 'a', true, requirement.a)
+          +promotion-td(requirement.wl, 'wl')
+          +promotion-td(requirement.w, 'w')
+          +promotion-td(requirement.d, 'd')
+          +promotion-td(requirement.ra, 'ra')
+          +promotion-td(requirement.p, 'p')

@@ -1,0 +1,11 @@
+include icons/up-rank
+include icons/down-rank
+
+mixin rank-change(currentRank, previousRank)
+  - const diff = previousRank - currentRank
+  if diff == 0
+    include /includes/icons/equals
+  else if diff > 0
+    +up-rank(diff)
+  else
+    +down-rank(diff)

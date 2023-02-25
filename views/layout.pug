@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+
+    include mixins/_all
+
+    title= clanName
+    link(rel!='icon' type='image/png' href!='/img/favicons/16x16.png' sizes='16x16')
+    link(rel!='icon' type='image/png' href!='/img/favicons/32x32.png' sizes='32x32')
+    link(rel!='icon' type='image/png' href!='/img/favicons/96x96.png' sizes='96x96')
+    link(rel!='icon' type='image/png' href!='/img/favicons/192x192.png' sizes='192x192')
+    link(rel!='shortcut icon' href='/img/favicons/favicon.ico')
+    script(src="/js/modernizr/webp.js") 
+    block styles
+      link(rel="stylesheet", href="/css/bootstrap.css")
+      link(rel='stylesheet', href='/css/main.css')
+    block scripts
+      script(src="https://kit.fontawesome.com/22dad4dcbd.js" crossorigin!="anonymous")
+  body
+    include includes/header
+    block content
