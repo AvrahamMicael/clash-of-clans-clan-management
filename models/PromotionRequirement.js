@@ -50,6 +50,8 @@ module.exports = model('PromotionRequirement', new Schema({
         {
           if(newValue < 0)
             throw new Error("'newValue' must not be negative.");
+          if(property == 'p' && newValue > 5000)
+            throw new Error("'games_points' must not be exceed 5000.");
           if(parseInt(newValue) != newValue)
             throw new Error("'newValue' must be integer.");
         }

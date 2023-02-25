@@ -4,6 +4,9 @@ for(const input of inputs)
 {
   input.onchange = async () => {
     let newValue;
+    const updateValue = value => {
+      newValue = input.value = value;
+    };
     switch(input.name)
     {
       case 'a':
@@ -11,8 +14,12 @@ for(const input of inputs)
         break;
       default:
         newValue = input.valueAsNumber;
-        if(!input.value || isNaN(newValue) || newValue < 0  || parseInt(newValue) != newValue)
-          newValue = 0;
+        if(!input.value || isNaN(newValue) || newValue < 0)
+          updateValue(0);
+        if(parseInt(newValue) != newValue)
+          updateValue(parseInt(newValue));
+        if(input.name == 'p' && newValue > 5000)
+          updateValue(5000);
     }
     await fetch('/promotions/'+getRole(input), {
       method: 'PATCH',

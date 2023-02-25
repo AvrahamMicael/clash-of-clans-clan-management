@@ -24,6 +24,8 @@ module.exports = model('MemberExtraData', new Schema({
   {
     statics: {
       updateOneExtra(tag, name, newValue) {
+        if(name == 'games_points' && newValue > 5000)
+          throw new Error("'games_points' must not be exceed 5000.");
         if(newValue < 0)
           throw new Error("'newValue' must not be negative.");
         return this.updateOne({ tag }, { [name]: newValue });

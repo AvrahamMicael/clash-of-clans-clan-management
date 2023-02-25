@@ -20,6 +20,7 @@ for(const btn of btns)
         : -1
     ) * step;
 
+    if(name == 'games_points' && newValue > 5000) newValue = 5000;
     if(newValue < 0) newValue = 0;
     indicatorSpan.textContent = newValue
 
