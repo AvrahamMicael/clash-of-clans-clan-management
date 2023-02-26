@@ -11,7 +11,7 @@
     "sass:bs": "node-sass ./assets/scss/bootstrap/bootstrap.scss -o ./public/css",
     "sass": "npm run sass:bs && npm run sass:main && npm run sass:member && npm run sass:admin && npm run sass:promotions && npm run sass:error",
     "babel": "babel ./assets/js -d ./public/js",
-    "purge:bs": "purgecss --css ./public/css/bootstrap.css --content ./**/*.pug --output ./public/css -v",
+    "purge:bs": "purgecss --css ./public/css/bootstrap.css --content ./**/*.pug --output ./public/css -v -s container-lg d-inline-block d-block d-flex position-relative position-absolute border border-white border-1 flex-column justify-content-center justify-content-between align-items-center m-0 mx-1 mx-2 mx-3 mx-auto mt-3 me-1 me-2 me-3 mb-5 ms-2 ms-auto p-0 p-1 p-2 p-4 px-1 px-2 px-4 py-1 pe-4 pe-5 pb-1 ps-3 ps-5 font-monospace fs-5 fs-6 fs-7 fs-8 fw-bold fw-bolder text-start text-center text-capitalize text-nowrap text-secondary text-white bg-opacity-50 rounded rounded-top rounded-bottom text-bg-dark",
     "build": "npm run sass && npm run purge:bs && npm run babel",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www"
