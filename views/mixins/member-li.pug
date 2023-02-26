@@ -17,6 +17,6 @@ mixin member-li({ name, clanRank, previousClanRank, expLevel, league, role, dona
         +indicator('war leagues', war_leagues, true, 860)
         +indicator('wars', wars, true, 790)
         +indicator('last raid attacks', `${lastRaid.attacks}/${lastRaid.attackLimit}`, false, 715)
-        +indicator('troops donated', donations, 665)
+        +indicator('troops donated', donations, false, 665)
         +indicator('troops received', donationsReceived)
         +trophies(trophies)
