@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const i18n = require('i18n');
-const { clanName, minAdminAccess, COOKIES_SECRET } = require('./config');
+const { clanName, minAdminAccess, COOKIES_SECRET, APP_LOCALE } = require('./config');
 const getErrorMessageByStatusCode = require('./utils/getErrorMessageByStatusCode');
 const compression = require('compression');
 const minify = require('express-minify');
@@ -28,9 +28,10 @@ app.use(minify());
 app.use(express.static(path.join(__dirname, 'public')));
 
 i18n.configure({
-  locales: ['pt'],
+  locales: [ APP_LOCALE ],
   directory: path.join(__dirname, '/locales'),
-  defaultLocale: 'pt'
+  cookie: '',
+  defaultLocale: APP_LOCALE,
 });
 
 // set globals

@@ -8,6 +8,7 @@ module.exports = {
   clanTagSharp: '#' + process.env.CLAN_TAG,
   clanTagEncoded: '%23' + process.env.CLAN_TAG,
   minAdminAccess: process.env.MIN_ADMIN_ACCESS || 'elder',
+  APP_LOCALE: process.env.LOCALE,
   COC_API_KEY: process.env.COC_API_KEY || '',
   COOKIES_SECRET: process.env.COOKIES_SECRET || '',
   COOKIES_SECURE: inProd,
