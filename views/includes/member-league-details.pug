@@ -7,6 +7,7 @@
       leagueIconUrl = member.league.iconUrls.small;
       leagueName = member.league.name;
     }
+    leagueName = __(leagueName);
   +img(leagueIconUrl, leagueName)
   div
     .league-name.fs-7= leagueName

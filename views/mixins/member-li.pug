@@ -6,7 +6,7 @@ mixin member-li({ name, clanRank, previousClanRank, expLevel, league, role, dona
       +member-rank(clanRank)
       +rank-change(clanRank, previousClanRank)
       .vl
-      +img(league.iconUrls.tiny, league.name)(class='mx-1')
+      +img(league.iconUrls.tiny, __(league.name))(class='mx-1')
       .vl
       +xp(expLevel)(class='ms-2 me-1 p-1 fs-6')
       .vl

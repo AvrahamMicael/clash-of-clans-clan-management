@@ -1,5 +1,5 @@
 mixin down-rank(diff)
   include /includes/rank-icon-container
     i.d-block.fa-solid.fa-caret-down.down-rank-icon
-      span.sr-only desceu de rank ícone
+      span.sr-only= __('rank down icon')
     span.down-rank-text.fs-7!= Math.abs(diff)
