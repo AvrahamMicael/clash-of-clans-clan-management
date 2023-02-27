@@ -29,13 +29,6 @@
   background-color: #3a3f4b;
   background-image: -o-linear-gradient(to right, #3a3f4b 0%, #3a3f4b 40%, #7682a0); 
   background-image: linear-gradient(to right, #3a3f4b 0%, #3a3f4b 40%, #7682a0); 
-  @media screen and (max-width: 768px)
-  {
-    &
-    {
-      text-align: right;
-    }
-  }
 }
 
 .league-trophies
@@ -56,6 +49,13 @@
   {
     position: relative;
     bottom: 2px;
+    @media screen and (max-width: 765px)
+    {
+      &
+      {
+        left: 5px;
+      }
+    }
   }
 }
 
