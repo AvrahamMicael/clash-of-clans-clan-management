@@ -5,7 +5,10 @@ block append styles
 
 block content
   main.container.text-center.error-block
-    h1= message
-    h2= error.status
-    pre #{error.stack}
-    pre.text-start #{JSON.stringify(error, null, '\n')}
+    h1 Error: #{message}
+    if error
+      h2= error.message
+      if error.response && error.response.data
+        h3= JSON.stringify(error.response.data)
+      pre #{error.stack}
+      pre.text-start= JSON.stringify(error, null, '\n')
