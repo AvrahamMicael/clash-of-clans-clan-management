@@ -35,7 +35,7 @@ This project was created to handle with data which are not provided in game and 
     * `MONGO_URI_TEST`: mongoDB connection string for development.
 4. Install dependencies: `npm i`.
 5. Setup static JS and CSS: `npm run build`.
-6. Run npm run dev.
+6. Run npm `run dev`.
 
 ## Admin
 
