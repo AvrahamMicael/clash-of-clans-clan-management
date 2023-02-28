@@ -20,7 +20,7 @@ router.post('/', ifAlreadyAuthRedirectTo('/'), handleBody('playerTag', 'playerTo
     return res.redirect(302, '/admin?invalid=1');
 
   setSignedCookie(res, 'admin', playerTag);
-  res.redirect('/');
+  res.redirect(302, '/');
 });
 
 module.exports = router;
