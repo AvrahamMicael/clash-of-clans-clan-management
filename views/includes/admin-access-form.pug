@@ -1,7 +1,9 @@
 form(action='/admin' method='POST')
+  if invalid
+    h5.err-msg= __('Invalid token or tag')
   label(for="player-tag") !{__('player tag')}:
-  input#player-tag(type="text", name="playerTag" placeholder!=`${__('Example')}: #2Y8RRQL9U` spellcheck='off' required pattern='^#([A-Z]|[0-9]){2,13}$')
+  input#player-tag(type="text", name="playerTag" placeholder!=`${__('Example')}: #2Y8RRQL9U` spellcheck='off' minlength='2' maxlength='13' required pattern='^#([A-Z]|[0-9]){2,13}$')
   label(for="player-token") !{__('player token')}:
-  input#player-token(type="text", name="playerToken" placeholder!=`${__('Example')}: k5ou9psf` spellcheck='off' required pattern='^([a-z]|[0-9]){8}$' autocomplete='off')
+  input#player-token(type="text", name="playerToken" placeholder!=`${__('Example')}: k5ou9psf` spellcheck='off' required maxlength='8' pattern='^([a-z]|[0-9]){8}$' autocomplete='off')
   button(type="submit")!= __('submit')
 

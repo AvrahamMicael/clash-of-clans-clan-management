@@ -7,8 +7,8 @@ const setSignedCookie = require('../utils/setSignedCookie');
 
 const router = require('express').Router();
 
-router.get('/', ifAlreadyAuthRedirectTo('/'), (req, res) => {
-  res.render('admin');
+router.get('/', ifAlreadyAuthRedirectTo('/'), ({ query: { invalid } }, res) => {
+  res.render('admin', { invalid });
 });
 
 router.post('/', ifAlreadyAuthRedirectTo('/'), handleBody('playerTag', 'playerToken'), async ({ body: { playerTag, playerToken } }, res) => {
@@ -17,7 +17,7 @@ router.post('/', ifAlreadyAuthRedirectTo('/'), handleBody('playerTag', 'playerTo
 
   const isValid = await COCApi.postCheckToken(playerTag.replace('#', ''), playerToken);
   if(!isValid)
-    return res.redirect('/admin');
+    return res.redirect(302, '/admin?invalid=1');
 
   setSignedCookie(res, 'admin', playerTag);
   res.redirect('/');
