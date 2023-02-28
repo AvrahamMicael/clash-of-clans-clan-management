@@ -1,3 +1,4 @@
+const StatusCodeError = require('../custom-errors/StatusCodeError');
 const handleBody = require('../middlewares/handleBody');
 const ifAlreadyAuthRedirectTo = require('../middlewares/ifAlreadyAuthRedirectTo');
 const COCApi = require('../services/COCApi');
@@ -12,7 +13,7 @@ router.get('/', ifAlreadyAuthRedirectTo('/'), (req, res) => {
 
 router.post('/', ifAlreadyAuthRedirectTo('/'), handleBody('playerTag', 'playerToken'), async ({ body: { playerTag, playerToken } }, res) => {
   if(!(await checkIfPlayerHasAdminAccess(playerTag)))
-    throw new Error(`You're not authorized to enter admin area!`);
+    throw new StatusCodeError(`You're not authorized to enter admin area!`, 403);
 
   const isValid = await COCApi.postCheckToken(playerTag.replace('#', ''), playerToken);
   if(!isValid)

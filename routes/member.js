@@ -8,6 +8,7 @@ const COCApi = require('../services/COCApi');
 const getFromCacheElseApi = require('../utils/getFromCacheElseApi');
 const putRaidDataToMember = require('../utils/putRaidDataToMember');
 const putExtraDataToMember = require('../utils/putExtraDataToMember');
+const StatusCodeError = require('../custom-errors/StatusCodeError');
 
 router.get('/:tag', async ({ params }, res) => {
   const [ member, lastRaidMembers, extraData ] = await Promise.all([
@@ -17,7 +18,7 @@ router.get('/:tag', async ({ params }, res) => {
   ]);
 
   if(member.clan?.tag != clanTagSharp)
-    throw new Error("Player isn't from this clan!");
+    throw new StatusCodeError("Player isn't from this clan!", 404);
 
   putRaidDataToMember(member, lastRaidMembers);
   putExtraDataToMember(member, extraData);

@@ -1,11 +1,11 @@
 const createError = require('http-errors');
+const StatusCodeError = require('./custom-errors/StatusCodeError');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const i18n = require('i18n');
 const { clanName, minAdminAccess, COOKIES_SECRET, APP_LOCALE } = require('./config');
-const getErrorMessageByStatusCode = require('./utils/getErrorMessageByStatusCode');
 const compression = require('compression');
 const minify = require('express-minify');
 require('express-async-errors');
@@ -54,12 +54,16 @@ app.use((err, req, res, next) => {
   if(req.headers.accept == 'application/json')
     return res.status(400).json({ msg: err.message });
 
+  const errorStatus = err.response?.status || err.status || 500;
+
   // set locals, only providing error in development
-  res.locals.message = getErrorMessageByStatusCode(err.response.status);
+  res.locals.statusMessage = StatusCodeError.getStatusMessage(errorStatus);
+  // res.locals.message = getErrorMessageByStatusCode(err.response?.status || err.status);
+  res.locals.message = err.message ?? '';
   res.locals.error = req.app.get('env') === 'development' ? err : null;
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(errorStatus);
   res.render('error');
 });
 

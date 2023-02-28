@@ -1,5 +1,6 @@
 const { model, Schema } = require('mongoose');
 const { CACHE_PRESET_KEYS } = require('../cache');
+const StatusCodeError = require('../custom-errors/StatusCodeError');
 const COCApi = require('../services/COCApi');
 const checkMemberPromotionThenAddDetails = require('../utils/checkMemberPromotionThenAddDetails');
 const getFromCacheElseApi = require('../utils/getFromCacheElseApi');
@@ -49,11 +50,11 @@ module.exports = model('PromotionRequirement', new Schema({
         if(property != 'a')
         {
           if(newValue < 0)
-            throw new Error("'newValue' must not be negative.");
+            throw new StatusCodeError("'newValue' must not be negative.", 400);
           if(property == 'p' && newValue > 5000)
-            throw new Error("'games_points' must not be exceed 5000.");
+            throw new StatusCodeError("'games_points' must not be exceed 5000.", 400);
           if(parseInt(newValue) != newValue)
-            throw new Error("'newValue' must be integer.");
+            throw new StatusCodeError("'newValue' must be integer.", 400);
         }
         return this.updateOne({ r: role }, { [property]: newValue });
       },
