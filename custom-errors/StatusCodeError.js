@@ -1,12 +1,23 @@
+/**
+ * @extends Error
+ */
 module.exports = class StatusCodeError extends Error
 {
-  status;
+  /**
+   * @constructor
+   * @param {string} message 
+   * @param {number} status 
+   */
   constructor(message, status)
   {
     super(message);
     this.status = status;
   }
 
+  /**
+   * @param {number} statusCode 
+   * @returns {string}
+   */
   static getStatusMessage(statusCode)
   {
     switch(statusCode)

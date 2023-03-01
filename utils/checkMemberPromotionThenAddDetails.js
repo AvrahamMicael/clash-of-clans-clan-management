@@ -1,5 +1,9 @@
 const getRoleAndUpperRoles = require("./getRoleAndUpperRoles");
 
+/**
+ * @param {PromotionRequirement[]} positionsReq 
+ * @returns {(member: MemberWithAllData) => boolean}
+ */
 module.exports = positionsReq => member =>  {
   let canBePromoted = false;
   for(const { r, a, w, wl, d, ra, p } of positionsReq)

@@ -5,6 +5,19 @@ const MemberExtraData = require('../models/MemberExtraData');
 const getFromCacheElseApi = require('../utils/getFromCacheElseApi');
 const putRaidDataToMember = require('../utils/putRaidDataToMember');
 
+/**
+ * @typedef {object} __COCApi
+ * @property {(options: {}) => Promise<ClanMember[]>} getClanMembers
+ * @property {(options: {}) => Promise<RaidMember[]>} getLastRaidMembers
+ * @property {(playerTag: TagWithoutSharp, options: {}) => Promise<Player>} getMember 
+ * @property {() => Promise<MemberWithAllData[]>} getMembersWithAllData
+ * @property {(tag: TagWithoutSharp, token: string) => Promise<boolean>} postCheckToken
+ * @typedef {__COCApi & import('axios').AxiosInstance} COCApi
+ */
+
+/**
+ * @type {COCApi}
+ */
 const COCApi = axios.create({
   baseURL: 'https://api.clashofclans.com/v1/',
   headers: {
@@ -25,7 +38,6 @@ COCApi.getLastRaidMembers = (options = {}) => COCApi.get(`clans/${clanTagEncoded
     cache.set(CACHE_PRESET_KEYS.LAST_RAID_MEMBERS, lastRaidMembers);
     return lastRaidMembers;
   });
-
 
 COCApi.getMember = (playerTag, options = {}) => COCApi.get(`players/%23${playerTag}`, options)
   .then(({ data: player }) => {

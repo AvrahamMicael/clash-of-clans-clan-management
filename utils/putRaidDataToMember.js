@@ -1,3 +1,8 @@
+/**
+ * @param {ClanMember} member 
+ * @param {RaidMember[]} lastRaidMembers 
+ * @returns {ClanMember & RaidData}
+ */
 module.exports = (member, lastRaidMembers) => {
   const { attacks, attackLimit, bonusAttackLimit } = lastRaidMembers.find(({ tag }) => tag == member.tag)
     ?? { attacks: 0, attackLimit: 0, bonusAttackLimit: 0 };

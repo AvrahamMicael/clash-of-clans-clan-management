@@ -1,5 +1,9 @@
 const StatusCodeError = require("../custom-errors/StatusCodeError");
 
+/**
+ * @param  {...string} items 
+ * @throws {StatusCodeError}
+ */
 module.exports = (...items) => ({ body }, res, next) => {
   const notProvidedItems = items.filter(item => [ undefined, null, '' ].includes(body[item]));
   if(notProvidedItems.length)

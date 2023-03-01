@@ -24,6 +24,12 @@ module.exports = model('MemberExtraData', new Schema({
   },
   {
     statics: {
+      /**
+       * @throws {StatusCodeError}
+       * @param {TagWithoutSharp} tag
+       * @param {string} name property name
+       * @param {number} newValue 
+       */
       updateOneExtra(tag, name, newValue) {
         if(name == 'games_points' && newValue > 5000)
           throw new StatusCodeError("'games_points' must not be exceed 5000.", 400);
@@ -31,9 +37,17 @@ module.exports = model('MemberExtraData', new Schema({
           throw new StatusCodeError("'newValue' must not be negative.", 400);
         return this.updateOne({ tag }, { [name]: newValue });
       },
+      /**
+       * @returns {Promise<ExtraData[]>}
+       */
       getAll() {
         return this.find({}, 'tag wars war_leagues games_points');
       },
+      /**
+       * @param {Array<ClanMember & ExtraData>} membersWithExtraData 
+       * @param {ExtraData} membersExtraData 
+       * @returns {Promise<void>}
+       */
       async deleteIfSomeMemberLeft(membersWithExtraData, membersExtraData) {
         const deleteExtraDataArr = [];
         membersExtraData.forEach(({ tag }) => {
@@ -45,6 +59,10 @@ module.exports = model('MemberExtraData', new Schema({
         await this.deleteMany({ tag: new RegExp(`^${deleteExtraDataArr.join('|')}$`) });
         cache.delete(CACHE_PRESET_KEYS.MEMBERS_EXTRA_DATA);
       },
+      /**
+       * @param {ClanMember[]} members 
+       * @param {ExtraData[]} membersExtraData 
+       */
       createExtraDataIfDoesntExistAndAdd(members, membersExtraData) {
         const createExtraDataArr = [];
         members.forEach(({ tag }, idx, membersArr) => {
@@ -68,6 +86,10 @@ module.exports = model('MemberExtraData', new Schema({
         }
         this.deleteIfSomeMemberLeft(members, membersExtraData);
       },
+      /**
+       * @param {TagWithoutSharp} memberTag
+       * @returns {Promise<ExtraData>}
+       */
       async getAllFromCacheElseGetOnlyOneMember(memberTag) {
         let data = cache.get(CACHE_PRESET_KEYS.MEMBERS_EXTRA_DATA)
           ?.find(({ tag }) => tag == memberTag);

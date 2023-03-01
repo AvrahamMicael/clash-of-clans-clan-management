@@ -1,3 +1,9 @@
+/**
+ * @template {ClanMember}
+ * @param {ClanMember} member 
+ * @param {ExtraData} extraData 
+ * @returns {ClanMember & ExtraData}
+ */
 module.exports = (member, extraData) => {
   const setProperty = propName => {
     member[propName] = extraData?.[propName] ?? 0;

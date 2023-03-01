@@ -1,3 +1,8 @@
+/**
+ * @throws {Error}
+ * @param {Role} role 
+ * @returns {Role[]}
+ */
 module.exports = role => {
   const roles = ['leader'];
   switch(role)

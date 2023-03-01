@@ -46,6 +46,12 @@ module.exports = model('PromotionRequirement', new Schema({
   },
   {
     statics: {
+      /**
+       * @throws {StatusCodeError}
+       * @param {string} role 
+       * @param {string} property 
+       * @param {number} newValue 
+       */
       updateOneProperty(role, property, newValue) {
         if(property != 'a')
         {
@@ -58,6 +64,9 @@ module.exports = model('PromotionRequirement', new Schema({
         }
         return this.updateOne({ r: role }, { [property]: newValue });
       },
+      /**
+       * @returns {Promise<PromotionRequirement>}
+       */
       getAllOrCreateDefaults() {
         return getFromCacheElseApi(CACHE_PRESET_KEYS.PROMOTIONS_REQUIREMENTS, async () => {
           let requirements = await this.find({});
@@ -71,6 +80,9 @@ module.exports = model('PromotionRequirement', new Schema({
           return requirements.sort(({ r }) => r == 'coLeader' ? -1 : 1);
         });
       },
+      /**
+       * @returns {Promise<MemberAvailableToPromotion[]>}
+       */
       async getMembersWhichCanBePromoted() {
         const [ requirements, members ] = await Promise.all([
           this.getAllOrCreateDefaults(),
